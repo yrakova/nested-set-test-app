@@ -53,7 +53,7 @@
 				</v-treeview>
 			</div>
 
-			<div class="col-md-6">
+			<div class="col-md-6" v-if="categories.length">
 				<div v-if="currentCategory" class="col">
 
 						<h4>Category</h4>
