@@ -18,8 +18,11 @@ module.exports = app => {
   // Delete a Category with id
   router.delete("/:id", categories.delete);
 
-  // Create a new Category
+  // Delete all
   router.delete("/", categories.deleteAll);
+
+   // Reset: Delete All + Create an Example
+  router.post("/reset", categories.createExample);
 
   app.use('/api/categories', router);
 };

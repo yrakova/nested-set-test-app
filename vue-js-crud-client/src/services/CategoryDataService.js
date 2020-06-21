@@ -28,6 +28,10 @@ class CategoryDataService {
 	findByName(name) {
 		return http.get(`/categories?name=${name}`);
 	}
+
+	createExample() {
+		return http.post(`/categories/reset`);
+	}
 }
 
 export default new CategoryDataService();

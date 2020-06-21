@@ -11,16 +11,17 @@
 			"file": "vue-js-crud-client/src/main.js",
 			"settings":
 			{
-				"buffer_size": 175,
+				"buffer_size": 234,
 				"encoding": "UTF-8",
-				"line_ending": "Unix"
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "nodejs-express-mysql-server/server.js",
+			"file": "vue-js-crud-client/src/components/CategoriesList.vue",
 			"settings":
 			{
-				"buffer_size": 940,
+				"buffer_size": 4678,
+				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
@@ -34,30 +35,12 @@
 			}
 		},
 		{
-			"file": "vue-js-crud-client/src/components/CategoriesList.vue",
-			"settings":
-			{
-				"buffer_size": 2552,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "nodejs-express-mysql-server/app/models/index.js",
 			"settings":
 			{
 				"buffer_size": 577,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "Searching 22 files for \"db.categories\"\n\n0 matches\n\nSearching 9 files for \"db.categories\"\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\controllers\\category.controller.js:\n    1  const db = require(\"../models\");\n    2: const Category = db.categories;\n    3  const Op = db.Sequelize.Op;\n    4  \n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\models\\index.js:\n   21  db.sequelize = sequelize;\n   22  \n   23: db.categories = require(\"./category.model.js\")(sequelize, Sequelize);\n   24  \n   25  module.exports = db;\n\n2 matches across 2 files\n\n\nSearching 10 files for \"api\" (case sensitive)\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\package.json:\n   12      \"mysql\",\n   13      \"rest\",\n   14:     \"api\"\n   15    ],\n   16    \"author\": \"yrakova\",\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\routes\\category.routes.js:\n   22    router.delete(\"/\", categories.deleteAll);\n   23  \n   24:   app.use('/api/categories', router);\n   25  };\n\n2 matches across 2 files\n\n\nSearching 10 files for \"Content can not be empty!\" (case sensitive)\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\controllers\\category.controller.js:\n    8    if (!req.body.name) {\n    9  \tres.status(400).send({\n   10: \t  message: \"Content can not be empty!\"\n   11  \t});\n   12  \treturn;\n\n1 match in 1 file\n\n\nSearching 83 files for \"TutorialDataService\"\n\n0 matches\n\nSearching 83 files for \"findAll\" (case sensitive)\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\controllers\\category.controller.js:\n   36  \n   37  // Retrieve all Categories from the database.\n   38: exports.findAll = (req, res) => {\n   39  \tconst name = req.query.name;\n   40  \tvar condition = name ? { name: { [Op.like]: `%${name}%` } } : null;\n   41  \n   42: \tCategory.findAll({ where: condition })\n   43  \t\t.then(data => {\n   44  \t\t\tres.send(data);\n   ..\n   52  };\n   53  \n   54: exports.findAll2 = (req, res) => {\n   55: \tCategory.findAll({ group: 'name' })\n   56  \t\t.then(data => {\n   57  \t\t\tres.send(data);\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\routes\\category.routes.js:\n    8  \n    9    // Retrieve all Categories\n   10:   router.get(\"/\", categories.findAll);\n   11  \n   12    // Retrieve a single Category with id\n\n5 matches across 2 files\n\n\nSearching 83 files for \"findAll\" (case sensitive)\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\controllers\\category.controller.js:\n   36  \n   37  // Retrieve all Categories from the database.\n   38: exports.findAll = (req, res) => {\n   39  \tconst name = req.query.name;\n   40  \tvar condition = name ? { name: { [Op.like]: `%${name}%` } } : null;\n   41  \n   42: \tCategory.findAll({ where: condition })\n   43  \t\t.then(data => {\n   44  \t\t\tres.send(data);\n   ..\n   52  };\n   53  \n   54: exports.findAll2 = (req, res) => {\n   55: \tCategory.findAll({ group: 'name' })\n   56  \t\t.then(data => {\n   57  \t\t\tres.send(data);\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\routes\\category.routes.js:\n    8  \n    9    // Retrieve all Categories\n   10:   router.get(\"/\", categories.findAll2);\n   11  \n   12    // Retrieve a single Category with id\n\n5 matches across 2 files\n\n\nSearching 82 files for \".findAll\" (case sensitive)\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\controllers\\category.controller.js:\n   36  \n   37  // Retrieve all Categories from the database.\n   38: exports.findAll = (req, res) => {\n   39  \tconst name = req.query.name;\n   40  \tvar condition = name ? { name: { [Op.like]: `%${name}%` } } : null;\n   41  \n   42: \tCategory.findAll({ where: condition })\n   43  \t\t.then(data => {\n   44  \t\t\tres.send(data);\n   ..\n   52  };\n   53  \n   54: exports.findAll2 = (req, res) => {\n   55: \tCategory.findAll({ group: 'name' })\n   56  \t\t.then(data => {\n   57  \t\t\tres.send(data);\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\routes\\category.routes.js:\n    8  \n    9    // Retrieve all Categories\n   10:   router.get(\"/\", categories.findAll2);\n   11  \n   12    // Retrieve a single Category with id\n\n5 matches across 2 files\n\n\nSearching 82 files for \"categorieslist\"\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\vue-js-crud-client\\src\\router.js:\n   11        alias: \"/categories\",\n   12        name: \"categories\",\n   13:       component: () => import(\"./components/CategoriesList\")\n   14      },\n   15      {\n\n1 match in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 4591,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
 			}
 		},
 		{
@@ -69,36 +52,29 @@
 			}
 		},
 		{
-			"file": "nodejs-express-mysql-server/app/routes/category.routes.js",
+			"file": "nodejs-express-mysql-server/app/controllers/category.controller.js",
 			"settings":
 			{
-				"buffer_size": 624,
+				"buffer_size": 2873,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "vue-js-crud-client/src/services/CategoryDataService.js",
+			"contents": "Searching 93 files for \"new sequelize\"\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\models\\index.js:\n    2  \n    3  const Sequelize = require(\"sequelize\");\n    4: const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {\n    5    host: dbConfig.HOST,\n    6    port: dbConfig.PORT,\n\n1 match in 1 file\n\n\nSearching 93 files for \"db.sequelize\"\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\server.js:\n   23  \n   24  const db = require('./app/models');\n   25: db.sequelize.sync();\n   26  \n   27  // use for drop and re-sync database\n   28: // db.sequelize.sync({ force: true }).then(() => {\n   29  //   console.log(\"Drop and re-sync db.\");\n   30  // });\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\controllers\\category.controller.js:\n    1  const db = require(\"../models\");\n    2  const Category = db.categories;\n    3: const Op = db.Sequelize.Op;\n    4  const Sequelize = require(\"sequelize\");\n    5  const { QueryTypes } = require('sequelize');\n\nD:\\Yuliya\\projects\\itscript\\nested-set-test-app\\nodejs-express-mysql-server\\app\\models\\index.js:\n   18  const db = {};\n   19  \n   20: db.Sequelize = Sequelize;\n   21: db.sequelize = sequelize;\n   22  \n   23  db.categories = require(\"./category.model.js\")(sequelize, Sequelize);\n\n5 matches across 3 files\n",
 			"settings":
 			{
-				"buffer_size": 531,
-				"line_ending": "Windows"
+				"buffer_size": 1374,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
 			"file": "nodejs-express-mysql-server/app/models/category.model.js",
 			"settings":
 			{
-				"buffer_size": 465,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "nodejs-express-mysql-server/app/controllers/category.controller.js",
-			"settings":
-			{
-				"buffer_size": 1890,
+				"buffer_size": 533,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -183,23 +159,25 @@
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/public",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/components",
-		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/services"
+		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/services",
+		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/views"
 	],
 	"file_history":
 	[
+		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/app/routes/category.routes.js",
+		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/services/CategoryDataService.js",
+		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/App.vue",
+		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/app/models/category.model.js",
+		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/server.js",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/app/config/db.config.js",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/package.json",
 		"/D/Yuliya/projects/mevn/mevn-application/client/package.json",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/components/CategoriesList.vue",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/public/index.html",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/components/Category.vue",
-		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/App.vue",
-		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/services/CategoryDataService.js",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/package.json",
 		"/D/Yuliya/projects/kaspersky/simple_spa/package.json",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/router.js",
-		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/app/routes/category.routes.js",
-		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/server.js",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/nodejs-express-mysql-server/app/controllers/category.controller.js",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/http-common.js",
 		"/D/Yuliya/projects/itscript/nested-set-test-app/vue-js-crud-client/src/components/AddCategory.vue",
@@ -277,9 +255,17 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": false,
+		"case_sensitive": true,
 		"find_history":
 		[
+			"currentParentObj",
+			"categories",
+			"db.sequelize",
+			"new sequelize",
+			"const sequelize",
+			"import sequelize",
+			"CategoryDataService",
+			"findAll2",
 			"categories",
 			"categorieslist",
 			".findAll",
@@ -349,6 +335,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"currentParentCategory",
 			"Categories",
 			"name",
 			"Name",
@@ -387,7 +374,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -396,15 +383,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 175,
+						"buffer_size": 234,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								175,
-								175
+								234,
+								234
 							]
 						],
 						"settings":
@@ -416,35 +403,37 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "nodejs-express-mysql-server/server.js",
+					"file": "vue-js-crud-client/src/components/CategoriesList.vue",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 940,
+						"buffer_size": 4678,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								3826,
+								3826
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax"
+							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2276.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -474,40 +463,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "vue-js-crud-client/src/components/CategoriesList.vue",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 2552,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								457,
-								457
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Vue Syntax Highlight/Vue Component.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "nodejs-express-mysql-server/app/models/index.js",
 					"semi_transient": false,
 					"settings":
@@ -519,8 +479,8 @@
 						"selection":
 						[
 							[
-								577,
-								577
+								471,
+								459
 							]
 						],
 						"settings":
@@ -531,137 +491,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4591,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										270,
-										283
-									],
-									[
-										474,
-										487
-									],
-									[
-										796,
-										799
-									],
-									[
-										1029,
-										1032
-									],
-									[
-										1360,
-										1385
-									],
-									[
-										1736,
-										1743
-									],
-									[
-										1900,
-										1907
-									],
-									[
-										2020,
-										2027
-									],
-									[
-										2064,
-										2071
-									],
-									[
-										2330,
-										2337
-									],
-									[
-										2666,
-										2673
-									],
-									[
-										2830,
-										2837
-									],
-									[
-										2950,
-										2957
-									],
-									[
-										2994,
-										3001
-									],
-									[
-										3260,
-										3267
-									],
-									[
-										3597,
-										3605
-									],
-									[
-										3761,
-										3769
-									],
-									[
-										3881,
-										3889
-									],
-									[
-										3925,
-										3933
-									],
-									[
-										4191,
-										4199
-									],
-									[
-										4528,
-										4542
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								4537,
-								4537
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 9,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2610.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "vue-js-crud-client/src/router.js",
 					"semi_transient": false,
 					"settings":
@@ -687,126 +521,133 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
-					"file": "nodejs-express-mysql-server/app/routes/category.routes.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 624,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								239,
-								239
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "vue-js-crud-client/src/services/CategoryDataService.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 531,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								42,
-								42
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "nodejs-express-mysql-server/app/models/category.model.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 465,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								465,
-								465
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
+					"buffer": 5,
 					"file": "nodejs-express-mysql-server/app/controllers/category.controller.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1890,
+						"buffer_size": 2873,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1166,
-								1166
+								910,
+								910
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"tab_size": 2,
+							"translate_tabs_to_spaces": false,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1374,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										217,
+										230
+									],
+									[
+										545,
+										557
+									],
+									[
+										628,
+										640
+									],
+									[
+										953,
+										965
+									],
+									[
+										1204,
+										1216
+									],
+									[
+										1237,
+										1249
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								960,
+								960
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 2,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 198.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "nodejs-express-mysql-server/app/models/category.model.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 533,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								448,
+								448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Babel/JavaScript (Babel).sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 324.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

@@ -18,9 +18,9 @@ export default new Router({
       component: () => import("./components/Category")
     },
     {
-      path: "/add",
-      name: "add",
-      component: () => import("./components/AddCategory")
+      path: "/about",
+      name: "about",
+      component: () => import("./components/HelloWorld")
     }
   ]
 });

@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand navbar-dark bg-dark">
-      <a href="#" class="navbar-brand">yrakova</a>
+      <a href="#" class="navbar-brand">nested-set-test-app</a>
       <div class="navbar-nav mr-auto">
         <li class="nav-item">
           <a href="/categories" class="nav-link">Categories</a>
         </li>
         <li class="nav-item">
-          <a href="/add" class="nav-link">Add</a>
+          <a href="/about" class="nav-link">About</a>
         </li>
       </div>
     </nav>
