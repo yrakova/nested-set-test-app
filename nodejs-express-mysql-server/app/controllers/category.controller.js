@@ -7,20 +7,40 @@ const { QueryTypes } = require('sequelize');
 // Create and Save a new Category
 exports.create = (req, res) => {
 	// Validate request
-	if (!req.body.name) {
+	if (!req.body.name || !req.body.parentId) {
 		console.log("req.body = ", req.body);
-	res.status(400).send({
-		message: "Content can not be empty!"
-	});
-	return;
+		res.status(400).send({
+			message: "Content can not be empty!"
+		});
+		return;
 	}
+	console.log(req.body);
+
+	db.sequelize.query(`SELECT rgt INTO @new_lft FROM categories WHERE id=${req.body.parentId};`, {type: QueryTypes.RAW, raw: true, mapToModel: false})
+		.then( () => {
+				return db.sequelize.query(`UPDATE categories SET rgt = rgt + 2 WHERE rgt >= @new_lft;`, {type: QueryTypes.UPDATE });
+			})
+		.then( () => {
+				return db.sequelize.query(`UPDATE categories SET lft = lft + 2 WHERE lft > @new_lft;`, {type: QueryTypes.UPDATE });
+			})
+		.then( () => {
+				return db.sequelize.query(`INSERT INTO categories (lft, rgt, name) VALUES (@new_lft, (@new_lft + 1), '${req.body.name}');`, {type: QueryTypes.INSERT});
+			})
+		.then ( (data) => {
+					res.send(data);
+				}
+			)
+		.catch ( (error) => {
+			console.log(error);
+		})
+
 
 	// Create a Category
-	const category = {
-	name: req.body.name,
-	description: req.body.description,
-	lft: req.body.lft,
-	rgt: req.body.rgt
+	/*const category = {
+		name: req.body.name,
+		description: req.body.description,
+		lft: req.body.lft,
+		rgt: req.body.rgt
 	};
 
 	// Save Category in the database
@@ -33,65 +53,26 @@ exports.create = (req, res) => {
 		message:
 			err.message || "Some error occurred while creating the Category."
 		});
-	});
+	});*/
+
+	// Insert new Category into nested set model
+
 };
 
 // Retrieve all Categories from the database.
 exports.findAll = (req, res) => {
 
 	db.sequelize.query("SELECT node.id, node.name, node.lft, node.rgt, (COUNT(parent.name) - 1) AS depth FROM categories AS node, categories AS parent WHERE node.lft BETWEEN parent.lft AND parent.rgt GROUP BY node.name ORDER BY node.lft;", {type: QueryTypes.SELECT })
-			.then( categories => {
-				res.send(categories);
-			})
-			.catch(err => {
-				res.status(500).send({
-					message:
-						err.message || "Some error occurred while retrieving categories."
-					})
-			});
-
-	/*res.send(categories);
-	return;*/
-
-	// const name = req.query.name;
-	// var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
-
-	// Category.findAll(
-	// 		{ include: [{
-	// 				model: Category,
-	// 				as: 'Parent'
-	// 			}] },
-	// 		{ attributes: [ 'id', 'name']}, ///*, [Sequelize.fn('COUNT', Sequelize.col('id')), 'depth']*/
-	// 		{ where: condition }
-	// 	)
-	// 	.then(data => {
-	// 		res.send(data);
-	// 	})
-	// 	.catch(err => {
-	// 		res.status(500).send({
-	// 			message:
-	// 				err.message || "Some error occurred while retrieving categories."
-	// 		});
-	// 	});
-};
-
-//original
-/*exports.findAll = (req, res) => {
-	console.log("category.controller :: findAll >> req = ", req);
-	const name = req.query.name;
-	var condition = name ? { name: { [Op.like]: `%${name}%` } } : null;
-
-	Category.findAll({ where: condition })
-		.then(data => {
-			res.send(data);
+		.then( categories => {
+			res.send(categories);
 		})
 		.catch(err => {
 			res.status(500).send({
 				message:
 					err.message || "Some error occurred while retrieving categories."
-			});
+				})
 		});
-};*/
+};
 
 exports.findOne = (req, res) => {
 	const id = req.params.id;

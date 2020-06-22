@@ -1,5 +1,24 @@
 <template>
-	<div class="col">
+	<div class="col" data-app>
+		<v-dialog v-model="insertDialog" maxWidth="600px">
+			<v-card>
+				<v-card-title>
+						<span class="headline">Insert a child category</span>
+				</v-card-title>
+				<v-card-text>
+					<v-container>
+						<v-col cols="12">
+							<v-text-field ref="insertCategoryName" label="Name" v-model="newCategoryName" required></v-text-field>
+						</v-col>
+					</v-container>
+				</v-card-text>
+					<v-card-actions>
+						<v-spacer></v-spacer>
+						<v-btn color="blue darken-1" text @click="onInsertDialogClose">Close</v-btn>
+						<v-btn color="blue darken-1" text @click="insertChildCategory">Save</v-btn>
+					</v-card-actions>
+			</v-card>
+		</v-dialog>
 		<div class="list row">
 			<!--<div class="input-group mb-3">
 				<input type="text" class="form-control" placeholder="Search by name"
@@ -76,7 +95,7 @@
 								Delete
 						</button>
 						<button class="btn btn-sm btn-success row mt-1"
-							@click="insertChildCategory">
+							@click="insertDialog = true">
 								Insert a child
 						</button>
 						<button class="btn btn-sm btn-warning row mt-1"
@@ -105,7 +124,9 @@ export default {
 			currentCategory: null,
 			currentIndex: -1,
 			name: "",
-			activeNodesList: []
+			activeNodesList: [],
+			insertDialog: false,
+			newCategoryName: null
 		};
 	},
 	methods: {
@@ -154,10 +175,13 @@ export default {
 			this.setActiveCategory(activeCategory, currentIndex);
 		},
 
-		refreshList() {
+		refreshList(resetCurrentCategory = true) {
 			this.retrieveCategories();
-			this.currentCategory = null;
-			this.currentIndex = -1;
+			if (resetCurrentCategory)
+			{
+				this.currentCategory = null;
+				this.currentIndex = -1;
+			}
 		},
 
 		setActiveCategory(category, index) {
@@ -199,20 +223,37 @@ export default {
 		},
 
 		editCategoryName() {
-
-		},
-
-		insertChildCategory() {
-
+			alert("Not implemented yet");
 		},
 
 		deleteCategory() {
-
+			alert("Not implemented yet");
 		},
 
 		moveCategory() {
+			alert("Not implemented yet");
+		},
 
+		insertChildCategory() {
+			//TODO add validation
+			console.log(this.newCategoryName);
+			if (this.newCategoryName && this.newCategoryName.length > 0) {
+				CategoryDataService.create({name: this.newCategoryName, parentId: this.currentCategory.id})
+					.then(response => {
+						const insertedId = response.data[0];
+						console.log("inserted new node with id " + insertedId);
+						this.refreshList(false);
+					});
+				this.insertDialog = false;
+				this.newCategoryName = null;
+			}
+		},
+
+		onInsertDialogClose() {
+			this.insertDialog = false;
+			this.newCategoryName = null;
 		}
+
 	},
 	mounted() {
 		this.retrieveCategories();

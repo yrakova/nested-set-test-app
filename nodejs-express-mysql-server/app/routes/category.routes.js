@@ -21,7 +21,7 @@ module.exports = app => {
   // Delete all
   router.delete("/", categories.deleteAll);
 
-   // Reset: Delete All + Create an Example
+  // Reset: Delete All + Create an Example
   router.post("/reset", categories.createExample);
 
   app.use('/api/categories', router);
